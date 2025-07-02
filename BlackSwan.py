@@ -21,8 +21,6 @@ from sklearn.preprocessing import StandardScaler
 from mpl_toolkits.mplot3d import Axes3D
 import plotly.express as px
 import warnings
-import tkinter as tk
-from tkinter import filedialog
 warnings.filterwarnings('ignore')
 
 # Initialize session state
@@ -197,12 +195,11 @@ with tabs[0]:
             )
             round_assignments[file.name] = sel
 
-        # Initialize directory history in session state
+        # Initialize directory history in session state with cloud-compatible default
         if "directory_history" not in st.session_state:
+            timestamp = time.strftime("%y%m%d_%H%M")
             st.session_state["directory_history"] = [
-                r"C:\Users\gwjac\Documents\black_swan_results",
-                os.path.expanduser("~"),  # User's home directory
-                os.path.expanduser("~/Desktop"),  # Desktop directory
+                f"/tmp/black_swan_results_{timestamp}"
             ]
 
         st.write("Select or enter the output directory:")
@@ -216,8 +213,8 @@ with tabs[0]:
         # Show text input if 'Custom' is selected
         if selected_dir == "Custom":
             output_dir = st.text_input(
-                "Enter custom directory path (e.g., C:\\Users\\gwjac\\Documents\\black_swan_results)",
-                value=r"C:\Users\gwjac\Documents\black_swan_results"
+                "Enter custom directory path (e.g., /tmp/custom_results)",
+                value=f"/tmp/black_swan_results_{timestamp}"
             )
         else:
             output_dir = selected_dir
