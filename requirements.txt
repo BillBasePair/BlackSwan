@@ -4,7 +4,7 @@ numpy==1.26.4
 matplotlib==3.8.4
 seaborn==0.13.1
 biopython==1.83
-viennarna==2.5.1
+viennarna==2.7.0
 python-levenshtein==0.25.1
 scikit-learn==1.5.2
 plotly==5.22.0
