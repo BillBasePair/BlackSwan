@@ -1,10 +1,10 @@
 streamlit==1.46.1
-pandas==1.5.3  # Downgrade to avoid build issues
+pandas==1.5.3
 numpy==1.26.4
 matplotlib==3.8.4
 seaborn==0.13.1
 biopython==1.83
 viennarna==2.7.0
-python-levenshtein==0.20.0  # Stable version
+python-levenshtein==0.20.0
 scikit-learn==1.5.2
 plotly==5.22.0
